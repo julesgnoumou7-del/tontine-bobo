@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tontine Bobo</title>
+<style>
+body{font-family:sans-serif;background:#0f172a;color:white;padding:20px;text-align:center}
+.box{background:white;color:black;border-radius:15px;padding:20px;margin:15px 0}
+input{width:90%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
+button{background:#22c55e;color:white;border:none;padding:15px;width:100%;border-radius:12px;font-size:18px;font-weight:bold}
+h1{color:#facc15}
+.result{font-size:22px;font-weight:bold;color:#16a34a}
+</style>
+</head>
+<body>
+<h1>💰 TONTINE BOBO</h1>
+<p>La tontine de Bobo-Dioulasso, simple et claire</p>
+<div class="box">
+<h3>Calculer ma tontine</h3>
+<input id="nb" type="number" placeholder="Nombre de membres ex: 10">
+<input id="montant" type="number" placeholder="Montant par tour ex: 10000 FCFA">
+<input id="nom" type="text" placeholder="Ton nom">
+<button onclick="calculer()">Calculer</button>
+<p class="result" id="res"></p>
+</div>
+<div class="box">
+<h3>✅ Comment ça marche ?</h3>
+<p>1. Chaque membre donne le même montant<br>2. Chaque tour, un membre prend tout<br>3. On tourne jusqu'à ce que tout le monde ait pris</p>
+<p><b>Fait par Jules - Bobo Dioulasso 🇧🇫</b></p>
+</div>
+<script>
+function calculer(){
+let nb=document.getElementById('nb').value;
+let m=document.getElementById('montant').value;
+let nom=document.getElementById('nom').value;
+if(!nb||!m){document.getElementById('res').innerHTML="Remplis les 2 cases !";return;}
+let total=nb*m;
+document.getElementById('res').innerHTML="Bravo "+nom+" !<br>Chaque tour = "+total+" FCFA<br>Tu recevras "+total+" FCFA à ton tour.";
+}
+</script>
+</body>
+</html>
