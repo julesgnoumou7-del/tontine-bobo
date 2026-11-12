@@ -2,42 +2,89 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tontine Bobo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TONTINE BOBO</title>
 <style>
-body{font-family:sans-serif;background:#0f172a;color:white;padding:20px;text-align:center}
-.box{background:white;color:black;border-radius:15px;padding:20px;margin:15px 0}
-input{width:90%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
-button{background:#22c55e;color:white;border:none;padding:15px;width:100%;border-radius:12px;font-size:18px;font-weight:bold}
-h1{color:#facc15}
-.result{font-size:22px;font-weight:bold;color:#16a34a}
+body{background:#0f172a;font-family:Arial,sans-serif;margin:0;padding:12px;color:#0f172a}
+.card{background:white;border-radius:20px;padding:18px;margin-bottom:12px}
+h1{text-align:center;color:white;margin:5px 0 2px}
+.sub{text-align:center;color:#cbd5e1;margin-bottom:15px}
+h2{margin:5px 0 12px;font-size:19px}
+input{width:100%;padding:13px;border:1px solid #ddd;border-radius:12px;margin-bottom:10px;font-size:16px;box-sizing:border-box}
+button{width:100%;padding:14px;border:none;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer}
+.btn-green{background:#22c55e;color:white}
+.btn-blue{background:#2563eb;color:white;margin-top:8px}
+.btn-red{background:#ef4444;color:white;margin-top:8px}
+.membre{background:#f1f5f9;border-radius:14px;padding:12px;margin-bottom:10px}
+.membre b{font-size:17px}
+.row{display:flex;gap:8px;margin-top:8px}
+.row button{padding:9px;font-size:14px}
+.payé{background:#dcfce7}
+.recu{border:2px solid #22c55e}
+.badge{display:inline-block;background:#22c55e;color:white;padding:4px 10px;border-radius:20px;font-size:13px;margin-left:5px}
+.tour-box{background:#fef9c3;border-radius:14px;padding:14px;text-align:center;font-size:18px;font-weight:bold;margin-bottom:12px}
+.small{font-size:13px;color:#64748b;text-align:center}
 </style>
 </head>
 <body>
 <h1>💰 TONTINE BOBO</h1>
-<p>La tontine de Bobo-Dioulasso, simple et claire</p>
-<div class="box">
-<h3>Calculer ma tontine</h3>
-<input id="nb" type="number" placeholder="Nombre de membres ex: 10">
-<input id="montant" type="number" placeholder="Montant par tour ex: 10000 FCFA">
-<input id="nom" type="text" placeholder="Ton nom">
-<button onclick="calculer()">Calculer</button>
-<p class="result" id="res"></p>
+<p class="sub">La tontine de Bobo-Dioulasso, simple et claire</p>
+
+<div class="card">
+<h2>⚙️ Paramètres</h2>
+<input id="montant" type="number" placeholder="Montant par tour ex: 10000">
+<input id="nom" type="text" placeholder="Nom du membre ex: Mariam">
+<button class="btn-green" onclick="ajouter()">+ Ajouter le membre</button>
+<button class="btn-blue" onclick="tourSuivant()">➡️ Tour suivant : C'est à qui ?</button>
+<button class="btn-red" onclick="toutEffacer()">🗑️ Tout effacer</button>
 </div>
-<div class="box">
-<h3>✅ Comment ça marche ?</h3>
-<p>1. Chaque membre donne le même montant<br>2. Chaque tour, un membre prend tout<br>3. On tourne jusqu'à ce que tout le monde ait pris</p>
-<p><b>Fait par Jules - Bobo Dioulasso 🇧🇫</b></p>
-</div>
+
+<div id="info"></div>
+<div class="card"><h2>👥 Membres (<span id="nb">0</span>)</h2><div id="liste"></div><p class="small">Coche Payé quand la personne a donné. Coche Reçu quand c'est son tour.</p></div>
+<div class="card"><h2>✅ Comment ça marche ?</h2><p>1. Chaque membre donne le même montant<br>2. Chaque tour, un membre prend tout<br>3. On tourne jusqu'à ce que tout le monde ait reçu</p></div>
+
 <script>
-function calculer(){
-let nb=document.getElementById('nb').value;
-let m=document.getElementById('montant').value;
-let nom=document.getElementById('nom').value;
-if(!nb||!m){document.getElementById('res').innerHTML="Remplis les 2 cases !";return;}
-let total=nb*m;
-document.getElementById('res').innerHTML="Bravo "+nom+" !<br>Chaque tour = "+total+" FCFA<br>Tu recevras "+total+" FCFA à ton tour.";
+let membres = JSON.parse(localStorage.getItem('tontine')||'[]');
+let tourActuel = parseInt(localStorage.getItem('tour')||'0');
+let montantDefaut = localStorage.getItem('montant')||'';
+document.getElementById('montant').value = montantDefaut;
+
+function sauver(){localStorage.setItem('tontine',JSON.stringify(membres));localStorage.setItem('tour',tourActuel);localStorage.setItem('montant',document.getElementById('montant').value);afficher();}
+function ajouter(){
+ let nom=document.getElementById('nom').value.trim();
+ if(!nom){alert('Écris un nom d\'abord');return;}
+ membres.push({nom:nom,paye:false,recu:false});
+ document.getElementById('nom').value='';sauver();
 }
+function tourSuivant(){
+ if(membres.length==0){alert('Ajoute des membres d\'abord');return;}
+ tourActuel=(tourActuel+1)%membres.length;
+ // On marque reçu
+ membres.forEach((m,i)=>m.recu=(i==tourActuel));
+ sauver();
+}
+function toutEffacer(){if(confirm('Effacer tout ?')){membres=[];tourActuel=0;sauver();}}
+function afficher(){
+ let montant=parseInt(document.getElementById('montant').value||0);
+ let total=membres.length*montant;
+ let info=document.getElementById('info');
+ let nomTour=membres.length?membres[tourActuel].nom:'---';
+ info.innerHTML=`<div class="tour-box">🎉 C'est le tour de : ${nomTour}<br>Il/Elle reçoit : ${total} FCFA<br><span style="font-size:14px;font-weight:normal">Tour ${membres.length?tourActuel+1:0} / ${membres.length} • ${membres.length} membres x ${montant} FCFA</span></div>`;
+ document.getElementById('nb').innerText=membres.length;
+ let liste=document.getElementById('liste');
+ if(membres.length==0) liste.innerHTML='<p style="text-align:center;color:#94a3b8">Pas encore de membre. Ajoute Jules, Mariam...</p>';
+ else liste.innerHTML=membres.map((m,i)=>`
+ <div class="membre ${m.paye?'payé':''} ${m.recu?'recu':''}">
+ <b>${i+1}. ${m.nom}</b> ${m.recu?'<span class="badge">⭐ TOUR ACTUEL</span>':''} ${m.paye?'✅ Payé':''} ${m.recu?'💰 A reçu':''}
+ <div class="row">
+ <button style="background:${m.paye?'#16a34a':'#e2e8f0'};color:${m.paye?'white':'black'}" onclick="togglePaye(${i})">${m.paye?'✅ A payé':'☐ Pas encore payé'}</button>
+ <button style="background:#f97316;color:white" onclick="supprimer(${i})">X Supprimer</button>
+ </div></div>`).join('');
+}
+function togglePaye(i){membres[i].paye=!membres[i].paye;sauver();}
+function supprimer(i){membres.splice(i,1);if(tourActuel>=membres.length)tourActuel=0;sauver();}
+document.getElementById('montant').addEventListener('input',sauver);
+afficher();
 </script>
 </body>
 </html>
