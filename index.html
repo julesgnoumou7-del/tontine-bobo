@@ -3,87 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TONTINE BOBO</title>
+<title>TONTINE BOBO - PRO</title>
 <style>
-body{background:#0f172a;font-family:Arial,sans-serif;margin:0;padding:12px;color:#0f172a}
-.card{background:white;border-radius:20px;padding:18px;margin-bottom:12px}
-h1{text-align:center;color:white;margin:5px 0 2px}
-.sub{text-align:center;color:#cbd5e1;margin-bottom:15px}
-h2{margin:5px 0 12px;font-size:19px}
-input{width:100%;padding:13px;border:1px solid #ddd;border-radius:12px;margin-bottom:10px;font-size:16px;box-sizing:border-box}
-button{width:100%;padding:14px;border:none;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer}
-.btn-green{background:#22c55e;color:white}
-.btn-blue{background:#2563eb;color:white;margin-top:8px}
-.btn-red{background:#ef4444;color:white;margin-top:8px}
-.membre{background:#f1f5f9;border-radius:14px;padding:12px;margin-bottom:10px}
-.membre b{font-size:17px}
-.row{display:flex;gap:8px;margin-top:8px}
-.row button{padding:9px;font-size:14px}
-.payé{background:#dcfce7}
-.recu{border:2px solid #22c55e}
-.badge{display:inline-block;background:#22c55e;color:white;padding:4px 10px;border-radius:20px;font-size:13px;margin-left:5px}
-.tour-box{background:#fef9c3;border-radius:14px;padding:14px;text-align:center;font-size:18px;font-weight:bold;margin-bottom:12px}
-.small{font-size:13px;color:#64748b;text-align:center}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(180deg,#0f172a,#1e1b4b);padding:12px;color:#0f172a}
+.top{text-align:center;color:white;padding:10px 0 14px}.top h1{margin:0;font-size:30px}.top p{color:#c7d2fe;margin:4px 0 0}
+.card{background:white;border-radius:22px;padding:16px;margin-bottom:12px;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+h2{margin:0 0 10px;font-size:18px}
+label{font-size:13px;font-weight:bold;color:#475569}
+input,select,textarea{width:100%;padding:13px;border:1.5px solid #e2e8f0;border-radius:13px;margin:6px 0 10px;font-size:16px;background:#f8fafc}
+button{width:100%;padding:14px;border:none;border-radius:14px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:6px}
+.btn-green{background:#22c55e;color:white}.btn-blue{background:#2563eb;color:white}.btn-dark{background:#0f172a;color:white}.btn-red{background:#ef4444;color:white}.btn-orange{background:#f97316;color:white}.btn-what{background:#25D366;color:white}
+.tourbox{background:linear-gradient(135deg,#fde68a,#facc15);border-radius:18px;padding:16px;text-align:center}
+.tourbox .big{font-size:22px;font-weight:900}.tourbox .mont{font-size:26px;font-weight:900;color:#166534}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}.mini{background:white;border-radius:14px;padding:10px;text-align:center}.mini b{font-size:18px;display:block}.mini span{font-size:11px;color:#64748b}
+.membre{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:16px;padding:12px;margin-bottom:10px}.membre.actif{border-color:#22c55e;background:#f0fdf4}
+.row{display:flex;gap:6px;margin-top:8px}.row button{padding:10px;font-size:13px}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}.b-pay{background:#dcfce7;color:#166534}.b-ret{background:#fee2e2;color:#991b1b}.b-tour{background:#22c55e;color:white}
+.histo{background:#f1f5f9;border-radius:12px;padding:10px;margin-bottom:8px;font-size:14px}
+.small{font-size:12px;color:#64748b;text-align:center}
 </style>
 </head>
 <body>
-<h1>💰 TONTINE BOBO</h1>
-<p class="sub">La tontine de Bobo-Dioulasso, simple et claire</p>
+<div class="top"><h1>💰 TONTINE BOBO 👑</h1><p>La tontine la plus sérieuse de Bobo-Dioulasso</p></div>
 
 <div class="card">
-<h2>⚙️ Paramètres</h2>
-<input id="montant" type="number" placeholder="Montant par tour ex: 10000">
-<input id="nom" type="text" placeholder="Nom du membre ex: Mariam">
-<button class="btn-green" onclick="ajouter()">+ Ajouter le membre</button>
-<button class="btn-blue" onclick="tourSuivant()">➡️ Tour suivant : C'est à qui ?</button>
-<button class="btn-red" onclick="toutEffacer()">🗑️ Tout effacer</button>
+<h2>⚙️ Paramètres de la tontine</h2>
+<label>Montant par personne (FCFA)</label><input id="montant" type="number" value="10000">
+<label>Fréquence des tours</label>
+<select id="freq"><option value="7">Chaque semaine (7 jours)</option><option value="30" selected>Chaque mois (30 jours)</option><option value="14">Toutes les 2 semaines</option></select>
+<label>Date du premier tour</label><input id="dateDebut" type="date">
+<label>Nom du groupe</label><input id="nomGroupe" type="text" placeholder="Ex: Famille GNOUMOU" value="Famille GNOUMOU">
+<button class="btn-dark" onclick="sauver();alert('Paramètres enregistrés ✅')">💾 Enregistrer les paramètres</button>
+</div>
+
+<div class="card">
+<h2>➕ Ajouter un membre</h2>
+<input id="nom" placeholder="Nom complet ex: GNOUMOU Jules">
+<input id="tel" placeholder="WhatsApp ex: 70 00 00 00">
+<button class="btn-green" onclick="ajouter()">+ Ajouter ce membre</button>
+<label style="margin-top:12px;display:block">Ou ajouter plusieurs d'un coup (1 nom par ligne)</label>
+<textarea id="masse" rows="4" placeholder="GNOUMOU Jules&#10;GNOUMOU Alban&#10;Traoré Alimata"></textarea>
+<button class="btn-blue" onclick="ajouterMasse()">📋 Ajouter toute la liste d'un coup</button>
 </div>
 
 <div id="info"></div>
-<div class="card"><h2>👥 Membres (<span id="nb">0</span>)</h2><div id="liste"></div><p class="small">Coche Payé quand la personne a donné. Coche Reçu quand c'est son tour.</p></div>
-<div class="card"><h2>✅ Comment ça marche ?</h2><p>1. Chaque membre donne le même montant<br>2. Chaque tour, un membre prend tout<br>3. On tourne jusqu'à ce que tout le monde ait reçu</p></div>
+
+<div class="card">
+<h2>📊 Caisse & Retardataires</h2>
+<div id="caisse"></div>
+<button class="btn-what" onclick="partager()">📲 Partager le résultat sur WhatsApp</button>
+<button class="btn-orange" onclick="resetPaye()">🔄 Nouveau tour : Tout le monde n'a pas encore payé</button>
+</div>
+
+<div class="card"><h2>👥 Membres (<span id="nb">0</span>)</h2><div id="liste"></div></div>
+
+<div class="card"><h2>📜 Historique des tours</h2><div id="histo"></div><button class="btn-red" onclick="toutEffacer()">🗑️ Tout effacer (membres + historique)</button></div>
+<p class="small">TONTINE BOBO • Fait avec ❤️ à Bobo-Dioulasso</p>
 
 <script>
-let membres = JSON.parse(localStorage.getItem('tontine')||'[]');
-let tourActuel = parseInt(localStorage.getItem('tour')||'0');
-let montantDefaut = localStorage.getItem('montant')||'';
-document.getElementById('montant').value = montantDefaut;
+let membres=JSON.parse(localStorage.getItem('tb_membres')||'[]');
+let tourActuel=parseInt(localStorage.getItem('tb_tour')||'0');
+let histo=JSON.parse(localStorage.getItem('tb_histo')||'[]');
+if(!localStorage.getItem('tb_date')) document.getElementById('dateDebut').value=new Date().toISOString().slice(0,10);
+else document.getElementById('dateDebut').value=localStorage.getItem('tb_date');
+document.getElementById('montant').value=localStorage.getItem('tb_montant')||10000;
+document.getElementById('freq').value=localStorage.getItem('tb_freq')||30;
+document.getElementById('nomGroupe').value=localStorage.getItem('tb_groupe')||'Famille GNOUMOU';
 
-function sauver(){localStorage.setItem('tontine',JSON.stringify(membres));localStorage.setItem('tour',tourActuel);localStorage.setItem('montant',document.getElementById('montant').value);afficher();}
+function sauver(){
+ localStorage.setItem('tb_membres',JSON.stringify(membres));
+ localStorage.setItem('tb_tour',tourActuel);
+ localStorage.setItem('tb_histo',JSON.stringify(histo));
+ localStorage.setItem('tb_montant',document.getElementById('montant').value);
+ localStorage.setItem('tb_freq',document.getElementById('freq').value);
+ localStorage.setItem('tb_date',document.getElementById('dateDebut').value);
+ localStorage.setItem('tb_groupe',document.getElementById('nomGroupe').value);
+ afficher();
+}
 function ajouter(){
  let nom=document.getElementById('nom').value.trim();
- if(!nom){alert('Écris un nom d\'abord');return;}
- membres.push({nom:nom,paye:false,recu:false});
- document.getElementById('nom').value='';sauver();
+ let tel=document.getElementById('tel').value.trim();
+ if(!nom){alert('Écris un nom');return;}
+ membres.push({nom:nom,tel:tel,paye:false});
+ document.getElementById('nom').value='';document.getElementById('tel').value='';sauver();
+}
+function ajouterMasse(){
+ let txt=document.getElementById('masse').value.trim();
+ if(!txt){alert('Colle des noms');return;}
+ txt.split('\n').forEach(l=>{let n=l.trim(); if(n) membres.push({nom:n,tel:'',paye:false})});
+ document.getElementById('masse').value='';sauver();alert('Liste ajoutée ✅');
+}
+function togglePaye(i){membres[i].paye=!membres[i].paye;sauver();}
+function supprimer(i){if(confirm('Supprimer '+membres[i].nom+' ?')){membres.splice(i,1); if(tourActuel>=membres.length) tourActuel=0; sauver();}}
+function resetPaye(){membres.forEach(m=>m.paye=false); sauver();}
+function toutEffacer(){if(confirm('Vraiment tout effacer ?')){membres=[];histo=[];tourActuel=0;sauver();}}
+function dateTour(index){
+ let d=new Date(document.getElementById('dateDebut').value||new Date());
+ let f=parseInt(document.getElementById('freq').value||30);
+ d.setDate(d.getDate()+index*f);
+ return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
 }
 function tourSuivant(){
- if(membres.length==0){alert('Ajoute des membres d\'abord');return;}
+ if(membres.length==0){alert('Ajoute des membres');return;}
+ let montant=parseInt(document.getElementById('montant').value||0);
+ let gagnant=membres[tourActuel];
+ histo.unshift({nom:gagnant.nom,montant:membres.length*montant,date:dateTour(tourActuel)});
  tourActuel=(tourActuel+1)%membres.length;
- // On marque reçu
- membres.forEach((m,i)=>m.recu=(i==tourActuel));
+ membres.forEach(m=>m.paye=false);
  sauver();
+ alert('🎉 Nouveau tour ! C\'est à '+membres[tourActuel].nom);
 }
-function toutEffacer(){if(confirm('Effacer tout ?')){membres=[];tourActuel=0;sauver();}}
+function partager(){
+ let montant=parseInt(document.getElementById('montant').value||0);
+ let groupe=document.getElementById('nomGroupe').value;
+ let nomTour=membres.length?membres[tourActuel].nom:'---';
+ let retard=membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun, tout le monde a payé ✅';
+ let txt=`💰 TONTINE BOBO - ${groupe}%0A%0A🎉 C'est le tour de : ${nomTour}%0A💵 Il/Elle reçoit : ${membres.length*montant} FCFA%0A📅 Date : ${dateTour(tourActuel)}%0A👥 ${membres.length} membres x ${montant} FCFA%0A%0A❌ Pas encore payé : ${retard}%0A%0AVoir le site : https://julesgnoumou7-del.github.io/tontine-bobo/`;
+ window.open('https://wa.me/?text='+txt,'_blank');
+}
 function afficher(){
  let montant=parseInt(document.getElementById('montant').value||0);
  let total=membres.length*montant;
- let info=document.getElementById('info');
  let nomTour=membres.length?membres[tourActuel].nom:'---';
- info.innerHTML=`<div class="tour-box">🎉 C'est le tour de : ${nomTour}<br>Il/Elle reçoit : ${total} FCFA<br><span style="font-size:14px;font-weight:normal">Tour ${membres.length?tourActuel+1:0} / ${membres.length} • ${membres.length} membres x ${montant} FCFA</span></div>`;
+ let payes=membres.filter(m=>m.paye).length;
+ let collecte=payes*montant;
+ let manque=total-collecte;
+ document.getElementById('info').innerHTML=`<div class="card" style="padding:0;background:transparent;box-shadow:none"><div class="tourbox">🎉 C'est le tour de : <div class="big">${nomTour}</div><div class="mont">${total} FCFA</div><div style="margin-top:6px">📅 ${dateTour(tourActuel)} • Tour ${membres.length?tourActuel+1:0} / ${membres.length}</div><button class="btn-blue" onclick="tourSuivant()">➡️ Tour suivant : C'est à qui ?</button></div><div class="grid"><div class="mini"><b>${membres.length}</b><span>Membres</span></div><div class="mini"><b>${total}</b><span>Total du tour</span></div><div class="mini"><b>${collecte}</b><span>Déjà collecté</span></div></div></div>`;
+ document.getElementById('caisse').innerHTML=`<div style="background:#f0fdf4;border-radius:14px;padding:12px;margin-bottom:8px">✅ <b>Collecté :</b> ${collecte} FCFA (${payes} / ${membres.length} ont payé)<br>❌ <b>Il manque :</b> ${manque} FCFA<br>👀 <b>Retardataires :</b> ${membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun 🎉'}</div>`;
  document.getElementById('nb').innerText=membres.length;
  let liste=document.getElementById('liste');
- if(membres.length==0) liste.innerHTML='<p style="text-align:center;color:#94a3b8">Pas encore de membre. Ajoute Jules, Mariam...</p>';
- else liste.innerHTML=membres.map((m,i)=>`
- <div class="membre ${m.paye?'payé':''} ${m.recu?'recu':''}">
- <b>${i+1}. ${m.nom}</b> ${m.recu?'<span class="badge">⭐ TOUR ACTUEL</span>':''} ${m.paye?'✅ Payé':''} ${m.recu?'💰 A reçu':''}
- <div class="row">
- <button style="background:${m.paye?'#16a34a':'#e2e8f0'};color:${m.paye?'white':'black'}" onclick="togglePaye(${i})">${m.paye?'✅ A payé':'☐ Pas encore payé'}</button>
- <button style="background:#f97316;color:white" onclick="supprimer(${i})">X Supprimer</button>
- </div></div>`).join('');
+ if(!membres.length) liste.innerHTML='<p class="small">Pas encore de membre</p>';
+ else liste.innerHTML=membres.map((m,i)=>`<div class="membre ${i==tourActuel?'actif':''}"><b>${i+1}. ${m.nom}</b> ${i==tourActuel?'<span class="badge b-tour">⭐ TOUR ACTUEL</span>':''} ${m.paye?'<span class="badge b-pay">✅ Payé</span>':'<span class="badge b-ret">❌ Pas payé</span>'}<br><span style="font-size:13px;color:#64748b">📱 ${m.tel||'Pas de numéro'} • 📅 Son tour : ${dateTour(i)}</span><div class="row"><button style="background:${m.paye?'#16a34a':'#e2e8f0'};color:${m.paye?'white':'black'}" onclick="togglePaye(${i})">${m.paye?'✅ A payé':'☐ Marquer payé'}</button>${m.tel?`<button style="background:#25D366;color:white" onclick="window.open('https://wa.me/226${m.tel.replace(/[^0-9]/g,'').slice(-8)}','_blank')">📲 WhatsApp</button>`:''}<button style="background:#f97316;color:white" onclick="supprimer(${i})">X</button></div></div>`).join('');
+ let h=document.getElementById('histo');
+ if(!histo.length) h.innerHTML='<p class="small">Aucun tour terminé pour le moment</p>';
+ else h.innerHTML=histo.map(x=>`<div class="histo">🏆 <b>${x.nom}</b> a reçu <b>${x.montant} FCFA</b><br><span style="color:#64748b">📅 ${x.date}</span></div>`).join('');
 }
-function togglePaye(i){membres[i].paye=!membres[i].paye;sauver();}
-function supprimer(i){membres.splice(i,1);if(tourActuel>=membres.length)tourActuel=0;sauver();}
-document.getElementById('montant').addEventListener('input',sauver);
+['montant','freq','dateDebut','nomGroupe'].forEach(id=>document.getElementById(id).addEventListener('input',sauver));
 afficher();
 </script>
 </body>
