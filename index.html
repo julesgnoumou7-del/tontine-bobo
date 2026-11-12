@@ -27,7 +27,6 @@ button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;fon
 </style>
 </head>
 <body>
-
 <div class="hero">
 <h1>💰 TONTINE BOBO STUDIO 👑</h1>
 <p>Crée des tontines à l'infini • Sauvegarde Anti-Vol<br><b>Patron des tontines de Bobo-Dioulasso</b></p>
@@ -37,7 +36,6 @@ button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;fon
 <div class="stat"><b id="s-distribue">0 FCFA</b><span>Déjà distribué</span></div>
 </div>
 </div>
-
 <div class="card">
 <h2>🎬 STUDIO - Mes Tontines</h2>
 <label>Choisis ta tontine :</label>
@@ -54,7 +52,6 @@ button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;fon
 <button class="btn-green" onclick="creerTontine()">✅ Créer cette tontine</button>
 </div>
 </div>
-
 <div class="card secu">
 <h2>🛡️ ANTI-VOL - Sauvegarde</h2>
 <p style="font-size:13px;margin:0 0 10px">Si on vole ton téléphone, tu récupères tout avec ça. Fais-le chaque semaine !</p>
@@ -65,14 +62,12 @@ button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;fon
 <button class="btn-gold" onclick="copierCode()">🔑 Copier mon Code de Récupération</button>
 <p id="codeRecup" style="text-align:center;font-weight:bold;font-size:14px;margin:8px 0 0"></p>
 </div>
-
 <div class="card"><h2>⚙️ Paramètres de <span id="titreTontine">...</span></h2>
 <label>Montant par personne (FCFA)</label><input id="montant" type="number" value="10000">
 <label>Fréquence</label><select id="freq"><option value="7">Chaque semaine</option><option value="30">Chaque mois</option><option value="14">Toutes les 2 semaines</option></select>
 <label>Date du premier tour</label><input id="dateDebut" type="date">
 <label>Pénalité retard</label><input id="penalite" type="number" value="1000">
 <button class="btn-dark" onclick="sauver();alert('Enregistré ✅')">💾 Enregistrer</button></div>
-
 <div class="card"><h2>➕ Ajouter un membre</h2>
 <input id="nom" placeholder="Nom complet ex: GNOUMOU Jules">
 <input id="tel" placeholder="WhatsApp ex: 70 00 00 00">
@@ -82,22 +77,15 @@ button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;fon
 <button class="btn-blue" onclick="ajouterMasse()">📋 Ajouter toute la liste</button>
 <button class="btn-gold" onclick="rejoindre()">🚀 JE VEUX REJOINDRE</button>
 </div>
-
 <div id="info"></div>
-
 <div class="card"><h2>📊 Caisse</h2><div id="caisse"></div>
 <button class="btn-what" onclick="partager()">📲 Partager sur WhatsApp</button>
 <button class="btn-orange" onclick="resetPaye()">🔄 Nouveau tour : Remettre à zéro</button></div>
-
 <div class="card"><h2>🏆 Classement des Bons Payeurs</h2><div id="classement"></div></div>
-
 <div class="card"><h2>👥 Membres (<span id="nb">0</span>)</h2><div id="liste"></div></div>
-
 <div class="card"><h2>📜 Règlement Officiel</h2><div class="regle"><b>✅ Article 1 :</b> Chacun paie le même montant.<br><b>⏰ Article 2 :</b> Retard = pénalité 1000 FCFA pour la caisse.<br><b>🏆 Article 3 :</b> L'ordre ne change jamais.<br><b>👀 Article 4 :</b> Tout est visible, pas de triche.<br><b>🚪 Article 5 :</b> Si tu quittes avant la fin, tu perds ton tour.</div></div>
-
 <div class="card"><h2>📜 Historique</h2><div id="histo"></div></div>
 <p class="small">TONTINE BOBO STUDIO • Fait avec ❤️ à Bobo-Dioulasso</p>
-
 <script>
 let tontines=JSON.parse(localStorage.getItem('tb_studio')||'[]');
 let currentId=localStorage.getItem('tb_studio_current')||'';
@@ -106,7 +94,6 @@ if(!tontines.length){
  tontines=[{id:id,nom:'Famille GNOUMOU',montant:10000,freq:30,date:new Date().toISOString().slice(0,10),penalite:1000,membres:[],tour:0,histo:[]}];
  currentId=id; sauverStudio();
 }
-// Migration ancienne version
 let oldMembres=JSON.parse(localStorage.getItem('tb_membres')||'[]');
 if(oldMembres.length && tontines[0].membres.length==0){ tontines[0].membres=oldMembres; tontines[0].tour=parseInt(localStorage.getItem('tb_tour')||'0'); tontines[0].histo=JSON.parse(localStorage.getItem('tb_histo')||'[]'); sauverStudio(); }
 function getT(){return tontines.find(t=>t.id==currentId)||tontines[0];}
