@@ -3,62 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TONTINE BOBO - ULTIME</title>
+<title>TONTINE BOBO STUDIO</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(180deg,#0f172a,#1e1b4b,#312e81);padding:12px;color:#0f172a}
-.hero{background:linear-gradient(135deg,#facc15,#f97316);border-radius:26px;padding:20px;text-align:center;color:#0f172a;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.hero h1{margin:0;font-size:32px;line-height:1.1}.hero p{font-size:15px;margin:8px 0 0}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}.stat{background:white;border-radius:16px;padding:10px}.stat b{font-size:20px;display:block}.stat span{font-size:11px;color:#64748b}
+.hero{background:linear-gradient(135deg,#facc15,#f97316);border-radius:26px;padding:18px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.hero h1{margin:0;font-size:30px}.hero p{font-size:14px;margin:6px 0 0}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}.stat{background:white;border-radius:16px;padding:10px}.stat b{font-size:18px;display:block}.stat span{font-size:11px;color:#64748b}
 .card{background:white;border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 10px 25px rgba(0,0,0,.25)}
 h2{margin:0 0 10px;font-size:18px}
 label{font-size:13px;font-weight:bold;color:#475569}
 input,select,textarea{width:100%;padding:13px;border:1.5px solid #e2e8f0;border-radius:13px;margin:6px 0 10px;font-size:16px;background:#f8fafc}
-button{width:100%;padding:14px;border:none;border-radius:14px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:6px}
-.btn-green{background:#22c55e;color:white}.btn-blue{background:#2563eb;color:white}.btn-dark{background:#0f172a;color:white}.btn-red{background:#ef4444;color:white}.btn-orange{background:#f97316;color:white}.btn-what{background:#25D366;color:white}.btn-gold{background:#facc15;color:#0f172a}
+button{width:100%;padding:13px;border:none;border-radius:14px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:6px}
+.btn-green{background:#22c55e;color:white}.btn-blue{background:#2563eb;color:white}.btn-dark{background:#0f172a;color:white}.btn-red{background:#ef4444;color:white}.btn-orange{background:#f97316;color:white}.btn-what{background:#25D366;color:white}.btn-gold{background:#facc15;color:#0f172a}.btn-purple{background:#7c3aed;color:white}
 .tourbox{background:linear-gradient(135deg,#fde68a,#facc15);border-radius:18px;padding:16px;text-align:center}
-.tourbox .big{font-size:23px;font-weight:900}.tourbox .mont{font-size:27px;font-weight:900;color:#166534}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}.mini{background:white;border-radius:14px;padding:10px;text-align:center}.mini b{font-size:17px;display:block}.mini span{font-size:11px;color:#64748b}
+.tourbox .big{font-size:22px;font-weight:900}.tourbox .mont{font-size:26px;font-weight:900;color:#166534}
 .membre{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:16px;padding:12px;margin-bottom:10px}.membre.actif{border-color:#22c55e;background:#f0fdf4}
 .row{display:flex;gap:6px;margin-top:8px}.row button{padding:10px;font-size:13px}
-.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}.b-pay{background:#dcfce7;color:#166534}.b-ret{background:#fee2e2;color:#991b1b}.b-tour{background:#22c55e;color:white}.b-gold{background:#fef08a;color:#854d0e}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}.b-pay{background:#dcfce7;color:#166534}.b-ret{background:#fee2e2;color:#991b1b}.b-tour{background:#22c55e;color:white}
 .histo{background:#f1f5f9;border-radius:12px;padding:10px;margin-bottom:8px;font-size:14px}
 .small{font-size:12px;color:#c7d2fe;text-align:center}.regle{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:12px;font-size:14px;line-height:1.6}
-.classement{background:#f0fdf4;border-radius:14px;padding:10px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.classement{background:#f0fdf4;border-radius:14px;padding:10px;margin-bottom:8px;display:flex;justify-content:space-between}
+.secu{background:#ecfdf5;border:2px solid #22c55e;border-radius:16px;padding:12px}
 </style>
 </head>
 <body>
 
 <div class="hero">
-<h1>💰 TONTINE BOBO 👑</h1>
-<p>La tontine la plus sérieuse de Bobo-Dioulasso<br><b>100% Transparente • 0 Tricherie • Tout le monde voit tout</b></p>
+<h1>💰 TONTINE BOBO STUDIO 👑</h1>
+<p>Crée des tontines à l'infini • Sauvegarde Anti-Vol<br><b>Patron des tontines de Bobo-Dioulasso</b></p>
 <div class="stats">
-<div class="stat"><b id="s-membres">0</b><span>Membres</span></div>
-<div class="stat"><b id="s-total">0 FCFA</b><span>Prochain gain</span></div>
+<div class="stat"><b id="s-nbTontines">0</b><span>Tontines</span></div>
+<div class="stat"><b id="s-nbMembres">0</b><span>Membres total</span></div>
 <div class="stat"><b id="s-distribue">0 FCFA</b><span>Déjà distribué</span></div>
 </div>
-<button class="btn-green" onclick="rejoindre()">🚀 JE VEUX REJOINDRE LA TONTINE</button>
-<button class="btn-dark" onclick="modeDemo()">🎬 Voir la Démo - Comment ça marche ?</button>
 </div>
 
-<div class="card"><h2>📜 Règlement Officiel - Pour convaincre tout le monde</h2>
-<div class="regle">
-<b>✅ Article 1 :</b> Chacun paie le même montant à chaque tour.<br>
-<b>⏰ Article 2 :</b> Si tu paies en retard : <b>pénalité 1000 FCFA</b> pour la caisse.<br>
-<b>🏆 Article 3 :</b> L'ordre des tours ne change jamais, tout le monde reçoit à son tour.<br>
-<b>👀 Article 4 :</b> Tout est visible par tous. Pas de secret, pas de triche.<br>
-<b>🚪 Article 5 :</b> Si tu quittes avant la fin, tu perds ton tour.<br>
-<b>💬 Article 6 :</b> On décide ensemble sur WhatsApp.
+<div class="card">
+<h2>🎬 STUDIO - Mes Tontines</h2>
+<label>Choisis ta tontine :</label>
+<select id="selectTontine" onchange="changerTontine()"></select>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<button class="btn-purple" onclick="document.getElementById('creerBox').style.display='block'">➕ Nouvelle Tontine</button>
+<button class="btn-red" onclick="supprimerTontine()">🗑️ Supprimer celle-ci</button>
+</div>
+<div id="creerBox" style="display:none;margin-top:12px;background:#f8fafc;padding:12px;border-radius:14px">
+<label>Nom de la nouvelle tontine</label><input id="newNom" placeholder="Ex: Tontine Quartier, Tontine Femmes...">
+<label>Montant par personne</label><input id="newMontant" type="number" value="10000">
+<label>Fréquence</label><select id="newFreq"><option value="7">Chaque semaine</option><option value="30" selected>Chaque mois</option><option value="14">Toutes les 2 semaines</option></select>
+<label>Date premier tour</label><input id="newDate" type="date">
+<button class="btn-green" onclick="creerTontine()">✅ Créer cette tontine</button>
 </div>
 </div>
 
-<div class="card"><h2>🏆 Classement des Bons Payeurs</h2><p style="font-size:13px;color:#64748b;margin:0 0 10px">Les plus sérieux en premier. Sois le n°1 !</p><div id="classement"></div></div>
+<div class="card secu">
+<h2>🛡️ ANTI-VOL - Sauvegarde</h2>
+<p style="font-size:13px;margin:0 0 10px">Si on vole ton téléphone, tu récupères tout avec ça. Fais-le chaque semaine !</p>
+<button class="btn-green" onclick="exporter()">💾 SAUVEGARDER - Télécharger mon fichier</button>
+<button class="btn-blue" onclick="document.getElementById('fileImport').click()">📥 RÉCUPÉRER - Importer mon fichier</button>
+<input type="file" id="fileImport" accept=".json" style="display:none" onchange="importer(event)">
+<button class="btn-what" onclick="sauvegardeWhatsApp()">📲 Envoyer ma sauvegarde sur WhatsApp</button>
+<button class="btn-gold" onclick="copierCode()">🔑 Copier mon Code de Récupération</button>
+<p id="codeRecup" style="text-align:center;font-weight:bold;font-size:14px;margin:8px 0 0"></p>
+</div>
 
-<div class="card"><h2>⚙️ Paramètres</h2>
+<div class="card"><h2>⚙️ Paramètres de <span id="titreTontine">...</span></h2>
 <label>Montant par personne (FCFA)</label><input id="montant" type="number" value="10000">
-<label>Fréquence</label><select id="freq"><option value="7">Chaque semaine</option><option value="30" selected>Chaque mois</option><option value="14">Toutes les 2 semaines</option></select>
+<label>Fréquence</label><select id="freq"><option value="7">Chaque semaine</option><option value="30">Chaque mois</option><option value="14">Toutes les 2 semaines</option></select>
 <label>Date du premier tour</label><input id="dateDebut" type="date">
-<label>Nom du groupe</label><input id="nomGroupe" type="text" value="Famille GNOUMOU">
-<label>Pénalité retard (FCFA)</label><input id="penalite" type="number" value="1000">
+<label>Pénalité retard</label><input id="penalite" type="number" value="1000">
 <button class="btn-dark" onclick="sauver();alert('Enregistré ✅')">💾 Enregistrer</button></div>
 
 <div class="card"><h2>➕ Ajouter un membre</h2>
@@ -67,114 +79,126 @@ button{width:100%;padding:14px;border:none;border-radius:14px;font-size:16px;fon
 <button class="btn-green" onclick="ajouter()">+ Ajouter ce membre</button>
 <label style="margin-top:12px;display:block">Ou ajouter plusieurs d'un coup</label>
 <textarea id="masse" rows="4" placeholder="GNOUMOU Jules&#10;GNOUMOU Alban&#10;Traoré Alimata"></textarea>
-<button class="btn-blue" onclick="ajouterMasse()">📋 Ajouter toute la liste</button></div>
+<button class="btn-blue" onclick="ajouterMasse()">📋 Ajouter toute la liste</button>
+<button class="btn-gold" onclick="rejoindre()">🚀 JE VEUX REJOINDRE</button>
+</div>
 
 <div id="info"></div>
 
-<div class="card"><h2>📊 Caisse & Retardataires</h2><div id="caisse"></div>
+<div class="card"><h2>📊 Caisse</h2><div id="caisse"></div>
 <button class="btn-what" onclick="partager()">📲 Partager sur WhatsApp</button>
-<button class="btn-orange" onclick="resetPaye()">🔄 Nouveau tour : Remettre les paiements à zéro</button></div>
+<button class="btn-orange" onclick="resetPaye()">🔄 Nouveau tour : Remettre à zéro</button></div>
+
+<div class="card"><h2>🏆 Classement des Bons Payeurs</h2><div id="classement"></div></div>
 
 <div class="card"><h2>👥 Membres (<span id="nb">0</span>)</h2><div id="liste"></div></div>
 
-<div class="card"><h2>📜 Historique des tours</h2><div id="histo"></div><button class="btn-red" onclick="toutEffacer()">🗑️ Tout effacer</button></div>
-<p class="small">TONTINE BOBO • Fait avec ❤️ à Bobo-Dioulasso • Famille GNOUMOU</p>
+<div class="card"><h2>📜 Règlement Officiel</h2><div class="regle"><b>✅ Article 1 :</b> Chacun paie le même montant.<br><b>⏰ Article 2 :</b> Retard = pénalité 1000 FCFA pour la caisse.<br><b>🏆 Article 3 :</b> L'ordre ne change jamais.<br><b>👀 Article 4 :</b> Tout est visible, pas de triche.<br><b>🚪 Article 5 :</b> Si tu quittes avant la fin, tu perds ton tour.</div></div>
+
+<div class="card"><h2>📜 Historique</h2><div id="histo"></div></div>
+<p class="small">TONTINE BOBO STUDIO • Fait avec ❤️ à Bobo-Dioulasso</p>
 
 <script>
-let membres=JSON.parse(localStorage.getItem('tb_membres')||'[]');
-let tourActuel=parseInt(localStorage.getItem('tb_tour')||'0');
-let histo=JSON.parse(localStorage.getItem('tb_histo')||'[]');
-if(!localStorage.getItem('tb_date')) document.getElementById('dateDebut').value=new Date().toISOString().slice(0,10);
-else document.getElementById('dateDebut').value=localStorage.getItem('tb_date');
-document.getElementById('montant').value=localStorage.getItem('tb_montant')||10000;
-document.getElementById('freq').value=localStorage.getItem('tb_freq')||30;
-document.getElementById('nomGroupe').value=localStorage.getItem('tb_groupe')||'Famille GNOUMOU';
-document.getElementById('penalite').value=localStorage.getItem('tb_penalite')||1000;
-
+let tontines=JSON.parse(localStorage.getItem('tb_studio')||'[]');
+let currentId=localStorage.getItem('tb_studio_current')||'';
+if(!tontines.length){
+ let id='t'+Date.now();
+ tontines=[{id:id,nom:'Famille GNOUMOU',montant:10000,freq:30,date:new Date().toISOString().slice(0,10),penalite:1000,membres:[],tour:0,histo:[]}];
+ currentId=id; sauverStudio();
+}
+// Migration ancienne version
+let oldMembres=JSON.parse(localStorage.getItem('tb_membres')||'[]');
+if(oldMembres.length && tontines[0].membres.length==0){ tontines[0].membres=oldMembres; tontines[0].tour=parseInt(localStorage.getItem('tb_tour')||'0'); tontines[0].histo=JSON.parse(localStorage.getItem('tb_histo')||'[]'); sauverStudio(); }
+function getT(){return tontines.find(t=>t.id==currentId)||tontines[0];}
+function sauverStudio(){localStorage.setItem('tb_studio',JSON.stringify(tontines));localStorage.setItem('tb_studio_current',currentId);}
+function changerTontine(){currentId=document.getElementById('selectTontine').value; sauverStudio(); afficher();}
+function creerTontine(){
+ let nom=document.getElementById('newNom').value.trim()||'Nouvelle Tontine';
+ let id='t'+Date.now();
+ tontines.push({id:id,nom:nom,montant:parseInt(document.getElementById('newMontant').value||10000),freq:parseInt(document.getElementById('newFreq').value||30),date:document.getElementById('newDate').value||new Date().toISOString().slice(0,10),penalite:1000,membres:[],tour:0,histo:[]});
+ currentId=id; document.getElementById('creerBox').style.display='none'; document.getElementById('newNom').value=''; sauverStudio(); afficher(); alert('🎉 Tontine "'+nom+'" créée !');
+}
+function supprimerTontine(){if(tontines.length<=1){alert('Tu dois garder au moins 1 tontine');return;} if(confirm('Supprimer '+getT().nom+' ?')){tontines=tontines.filter(t=>t.id!=currentId); currentId=tontines[0].id; sauverStudio(); afficher();}}
 function sauver(){
- localStorage.setItem('tb_membres',JSON.stringify(membres));
- localStorage.setItem('tb_tour',tourActuel);
- localStorage.setItem('tb_histo',JSON.stringify(histo));
- localStorage.setItem('tb_montant',document.getElementById('montant').value);
- localStorage.setItem('tb_freq',document.getElementById('freq').value);
- localStorage.setItem('tb_date',document.getElementById('dateDebut').value);
- localStorage.setItem('tb_groupe',document.getElementById('nomGroupe').value);
- localStorage.setItem('tb_penalite',document.getElementById('penalite').value);
- afficher();
+ let t=getT();
+ t.montant=parseInt(document.getElementById('montant').value||0); t.freq=parseInt(document.getElementById('freq').value||30); t.date=document.getElementById('dateDebut').value; t.penalite=parseInt(document.getElementById('penalite').value||0);
+ sauverStudio(); afficher();
 }
 function ajouter(){
- let nom=document.getElementById('nom').value.trim();
- let tel=document.getElementById('tel').value.trim();
- if(!nom){alert('Écris un nom');return;}
- membres.push({nom:nom,tel:tel,paye:false,points:0});
- document.getElementById('nom').value='';document.getElementById('tel').value='';sauver();
+ let nom=document.getElementById('nom').value.trim(); let tel=document.getElementById('tel').value.trim();
+ if(!nom){alert('Écris un nom');return;} getT().membres.push({nom:nom,tel:tel,paye:false,points:0});
+ document.getElementById('nom').value='';document.getElementById('tel').value=''; sauverStudio(); afficher();
 }
 function ajouterMasse(){
- let txt=document.getElementById('masse').value.trim();
- if(!txt){alert('Colle des noms');return;}
- txt.split('\n').forEach(l=>{let n=l.trim(); if(n) membres.push({nom:n,tel:'',paye:false,points:0})});
- document.getElementById('masse').value='';sauver();alert('Liste ajoutée ✅');
+ let txt=document.getElementById('masse').value.trim(); if(!txt){alert('Colle des noms');return;}
+ txt.split('\n').forEach(l=>{let n=l.trim(); if(n) getT().membres.push({nom:n,tel:'',paye:false,points:0})});
+ document.getElementById('masse').value=''; sauverStudio(); afficher(); alert('Liste ajoutée ✅');
 }
-function togglePaye(i){membres[i].paye=!membres[i].paye; if(membres[i].paye) membres[i].points=(membres[i].points||0)+1; else membres[i].points=Math.max(0,(membres[i].points||0)-1); sauver();}
-function supprimer(i){if(confirm('Supprimer '+membres[i].nom+' ?')){membres.splice(i,1); if(tourActuel>=membres.length) tourActuel=0; sauver();}}
-function resetPaye(){membres.forEach(m=>m.paye=false); sauver();}
-function toutEffacer(){if(confirm('Vraiment tout effacer ?')){membres=[];histo=[];tourActuel=0;sauver();}}
-function dateTour(index){let d=new Date(document.getElementById('dateDebut').value||new Date()); let f=parseInt(document.getElementById('freq').value||30); d.setDate(d.getDate()+index*f); return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});}
+function togglePaye(i){let m=getT().membres[i]; m.paye=!m.paye; if(m.paye) m.points=(m.points||0)+1; else m.points=Math.max(0,(m.points||0)-1); sauverStudio(); afficher();}
+function supprimerMembre(i){let t=getT(); if(confirm('Supprimer '+t.membres[i].nom+' ?')){t.membres.splice(i,1); if(t.tour>=t.membres.length) t.tour=0; sauverStudio(); afficher();}}
+function resetPaye(){getT().membres.forEach(m=>m.paye=false); sauverStudio(); afficher();}
+function dateTour(index){let t=getT(); let d=new Date(t.date||new Date()); d.setDate(d.getDate()+index*parseInt(t.freq||30)); return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});}
 function tourSuivant(){
- if(!membres.length){alert('Ajoute des membres');return;}
- let montant=parseInt(document.getElementById('montant').value||0);
- let gagnant=membres[tourActuel];
- histo.unshift({nom:gagnant.nom,montant:membres.length*montant,date:dateTour(tourActuel)});
- tourActuel=(tourActuel+1)%membres.length;
- membres.forEach(m=>m.paye=false);
- sauver(); alert('🎉 Nouveau tour ! C\'est à '+membres[tourActuel].nom);
+ let t=getT(); if(!t.membres.length){alert('Ajoute des membres');return;}
+ t.histo.unshift({nom:t.membres[t.tour].nom,montant:t.membres.length*t.montant,date:dateTour(t.tour)});
+ t.tour=(t.tour+1)%t.membres.length; t.membres.forEach(m=>m.paye=false); sauverStudio(); afficher(); alert('🎉 Nouveau tour ! C\'est à '+t.membres[t.tour].nom);
 }
 function partager(){
- let montant=parseInt(document.getElementById('montant').value||0);
- let groupe=document.getElementById('nomGroupe').value;
- let nomTour=membres.length?membres[tourActuel].nom:'---';
- let retard=membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun, tout le monde a payé ✅';
- let txt=`💰 TONTINE BOBO - ${groupe}%0A%0A🎉 C'est le tour de : ${nomTour}%0A💵 Il/Elle reçoit : ${membres.length*montant} FCFA%0A📅 Date : ${dateTour(tourActuel)}%0A👥 ${membres.length} membres x ${montant} FCFA%0A%0A❌ Pas encore payé : ${retard}%0A%0A📜 Règlement : Paiement à l'heure sinon pénalité 1000 FCFA%0A%0ARejoins-nous : https://julesgnoumou7-del.github.io/tontine-bobo/`;
+ let t=getT(); let nomTour=t.membres.length?t.membres[t.tour].nom:'---';
+ let retard=t.membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun, tout le monde a payé ✅';
+ let txt=`💰 TONTINE BOBO STUDIO - ${t.nom}%0A%0A🎉 Tour de : ${nomTour}%0A💵 Il/Elle reçoit : ${t.membres.length*t.montant} FCFA%0A📅 ${dateTour(t.tour)}%0A👥 ${t.membres.length} membres x ${t.montant} FCFA%0A%0A❌ Pas encore payé : ${retard}%0A%0A📜 Règlement : Retard = pénalité ${t.penalite} FCFA%0A%0ARejoins-nous : https://julesgnoumou7-del.github.io/tontine-bobo/`;
  window.open('https://wa.me/?text='+txt,'_blank');
 }
 function rejoindre(){
- let nom=prompt('Ton nom complet pour rejoindre la tontine ?');
- if(!nom) return;
- let tel=prompt('Ton numéro WhatsApp ? (ex: 70 00 00 00)');
- membres.push({nom:nom,tel:tel||'',paye:false,points:0});
- sauver(); alert('Bienvenue '+nom+' ! 🎉 Tu es maintenant membre de la Tontine Bobo !');
+ let nom=prompt('Ton nom complet ?'); if(!nom) return; let tel=prompt('Ton WhatsApp ?'); getT().membres.push({nom:nom,tel:tel||'',paye:false,points:0}); sauverStudio(); afficher(); alert('Bienvenue '+nom+' ! 🎉');
 }
-function modeDemo(){
- if(membres.length>0 && !confirm('Tu as déjà des membres. Tu veux quand même voir la démo ? (ça ne supprime pas tes membres)')) return;
- alert('🎬 DÉMO : Regarde !\n\n1. Chaque membre paie 10000 FCFA\n2. 10 membres = 100000 FCFA pour le gagnant\n3. Chacun reçoit à son tour, sans triche\n4. Tout le monde voit qui a payé et qui n\'a pas payé\n\nC\'est simple et sérieux !');
- window.scrollTo({top:0,behavior:'smooth'});
+function exporter(){
+ let data=JSON.stringify({tontines:tontines,exportDate:new Date().toLocaleString('fr-FR'),code:'BOBO-'+currentId});
+ let blob=new Blob([data],{type:'application/json'}); let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='tontine-bobo-sauvegarde-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+ alert('✅ Fichier téléchargé ! Envoie-le sur WhatsApp ou Google Drive tout de suite. C\'est ta sauvegarde anti-vol.');
+}
+function importer(e){
+ let file=e.target.files[0]; if(!file) return; let r=new FileReader();
+ r.onload=function(){try{let d=JSON.parse(r.result); if(d.tontines){tontines=d.tontines; currentId=tontines[0].id; sauverStudio(); afficher(); alert('🎉 TOUT RÉCUPÉRÉ ! Tes tontines sont revenues !');}else alert('Fichier invalide');}catch(err){alert('Fichier invalide');}};
+ r.readAsText(file);
+}
+function sauvegardeWhatsApp(){
+ let t=getT(); let txt=`🛡️ SAUVEGARDE TONTINE BOBO - ${t.nom} - ${new Date().toLocaleDateString('fr-FR')}%0A%0AMembres: ${t.membres.map((m,i)=>(i+1)+'. '+m.nom+' '+(m.paye?'✅':'❌')).join('%0A')}%0A%0ATour actuel: ${t.membres.length?t.membres[t.tour].nom:'---'}%0A%0AHistorique: ${t.histo.map(h=>h.nom+' a reçu '+h.montant+' FCFA').join(' | ')||'Aucun'}%0A%0A⚠️ Garde ce message, c\'est ta sauvegarde si ton téléphone est volé.`;
+ window.open('https://wa.me/?text='+txt,'_blank');
+}
+function copierCode(){
+ let code='BOBO-STUDIO-'+tontines.length+'-TONTINES-'+new Date().getFullYear();
+ document.getElementById('codeRecup').innerText='Ton Code : '+code+' - Écris-le sur papier !';
+ navigator.clipboard&&navigator.clipboard.writeText(code);
+ alert('Code copié : '+code+'\nÉcris-le sur papier et garde-le à la maison.');
 }
 function afficher(){
- let montant=parseInt(document.getElementById('montant').value||0);
- let total=membres.length*montant;
- let nomTour=membres.length?membres[tourActuel].nom:'---';
- let payes=membres.filter(m=>m.paye).length;
- let collecte=payes*montant;
- let manque=total-collecte;
- let distribue=histo.reduce((s,x)=>s+x.montant,0);
- document.getElementById('s-membres').innerText=membres.length;
- document.getElementById('s-total').innerText=total+' FCFA';
- document.getElementById('s-distribue').innerText=distribue+' FCFA';
- document.getElementById('info').innerHTML=`<div class="card" style="padding:0;background:transparent;box-shadow:none"><div class="tourbox">🎉 C'est le tour de : <div class="big">${nomTour}</div><div class="mont">${total} FCFA</div><div style="margin-top:6px">📅 ${dateTour(tourActuel)} • Tour ${membres.length?tourActuel+1:0} / ${membres.length}</div><button class="btn-blue" onclick="tourSuivant()">➡️ Tour suivant : C'est à qui ?</button></div><div class="grid3"><div class="mini"><b>${membres.length}</b><span>Membres</span></div><div class="mini"><b>${total}</b><span>Total du tour</span></div><div class="mini"><b>${collecte}</b><span>Déjà collecté</span></div></div></div>`;
- document.getElementById('caisse').innerHTML=`<div style="background:#f0fdf4;border-radius:14px;padding:12px;margin-bottom:8px">✅ <b>Collecté :</b> ${collecte} FCFA (${payes} / ${membres.length} ont payé)<br>❌ <b>Il manque :</b> ${manque} FCFA<br>👀 <b>Retardataires :</b> ${membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun 🎉'}<br>🏆 <b>Déjà distribué au total :</b> ${distribue} FCFA</div>`;
- document.getElementById('nb').innerText=membres.length;
+ let t=getT();
+ document.getElementById('selectTontine').innerHTML=tontines.map(x=>`<option value="${x.id}" ${x.id==currentId?'selected':''}>${x.nom} (${x.membres.length} membres)</option>`).join('');
+ document.getElementById('titreTontine').innerText=t.nom;
+ document.getElementById('montant').value=t.montant; document.getElementById('freq').value=t.freq; document.getElementById('dateDebut').value=t.date; document.getElementById('penalite').value=t.penalite;
+ let total=t.membres.length*t.montant; let nomTour=t.membres.length?t.membres[t.tour].nom:'---';
+ let payes=t.membres.filter(m=>m.paye).length; let collecte=payes*t.montant; let manque=total-collecte;
+ let totalMembres=tontines.reduce((s,x)=>s+x.membres.length,0);
+ let distribueTotal=tontines.reduce((s,x)=>s+x.histo.reduce((a,b)=>a+b.montant,0),0);
+ document.getElementById('s-nbTontines').innerText=tontines.length;
+ document.getElementById('s-nbMembres').innerText=totalMembres;
+ document.getElementById('s-distribue').innerText=distribueTotal+' FCFA';
+ document.getElementById('info').innerHTML=`<div class="card" style="padding:0;background:transparent;box-shadow:none"><div class="tourbox">🎉 <b>${t.nom}</b> - C'est le tour de : <div class="big">${nomTour}</div><div class="mont">${total} FCFA</div><div style="margin-top:6px">📅 ${dateTour(t.tour)} • Tour ${t.membres.length?t.tour+1:0} / ${t.membres.length}</div><button class="btn-blue" onclick="tourSuivant()">➡️ Tour suivant</button></div></div>`;
+ document.getElementById('caisse').innerHTML=`<div style="background:#f0fdf4;border-radius:14px;padding:12px">✅ <b>Collecté :</b> ${collecte} FCFA (${payes} / ${t.membres.length})<br>❌ <b>Il manque :</b> ${manque} FCFA<br>👀 <b>Retardataires :</b> ${t.membres.filter(m=>!m.paye).map(m=>m.nom).join(', ')||'Aucun 🎉'}</div>`;
+ document.getElementById('nb').innerText=t.membres.length;
  let liste=document.getElementById('liste');
- if(!membres.length) liste.innerHTML='<p style="text-align:center;color:#64748b">Pas encore de membre. Clique sur JE VEUX REJOINDRE en haut !</p>';
- else liste.innerHTML=membres.map((m,i)=>`<div class="membre ${i==tourActuel?'actif':''}"><b>${i+1}. ${m.nom}</b> ${i==tourActuel?'<span class="badge b-tour">⭐ TOUR ACTUEL</span>':''} ${m.paye?'<span class="badge b-pay">✅ Payé</span>':'<span class="badge b-ret">❌ Pas payé</span>'}<br><span style="font-size:13px;color:#64748b">📱 ${m.tel||'Pas de numéro'} • 📅 Son tour : ${dateTour(i)} • ⭐ ${m.points||0} pts</span><div class="row"><button style="background:${m.paye?'#16a34a':'#e2e8f0'};color:${m.paye?'white':'black'}" onclick="togglePaye(${i})">${m.paye?'✅ A payé':'☐ Marquer payé'}</button>${m.tel?`<button style="background:#25D366;color:white" onclick="window.open('https://wa.me/226${m.tel.replace(/[^0-9]/g,'').slice(-8)}','_blank')">📲 WhatsApp</button>`:''}<button style="background:#f97316;color:white" onclick="supprimer(${i})">X</button></div></div>`).join('');
+ if(!t.membres.length) liste.innerHTML='<p style="text-align:center;color:#64748b">Pas encore de membre. Ajoute des membres ou clique sur JE VEUX REJOINDRE.</p>';
+ else liste.innerHTML=t.membres.map((m,i)=>`<div class="membre ${i==t.tour?'actif':''}"><b>${i+1}. ${m.nom}</b> ${i==t.tour?'<span class="badge b-tour">⭐ TOUR ACTUEL</span>':''} ${m.paye?'<span class="badge b-pay">✅ Payé</span>':'<span class="badge b-ret">❌ Pas payé</span>'}<br><span style="font-size:13px;color:#64748b">📱 ${m.tel||'Pas de numéro'} • 📅 Son tour : ${dateTour(i)} • ⭐ ${m.points||0} pts</span><div class="row"><button style="background:${m.paye?'#16a34a':'#e2e8f0'};color:${m.paye?'white':'black'}" onclick="togglePaye(${i})">${m.paye?'✅ A payé':'☐ Marquer payé'}</button>${m.tel?`<button style="background:#25D366;color:white" onclick="window.open('https://wa.me/226${m.tel.replace(/[^0-9]/g,'').slice(-8)}','_blank')">📲 WhatsApp</button>`:''}<button style="background:#f97316;color:white" onclick="supprimerMembre(${i})">X</button></div></div>`).join('');
  let cls=document.getElementById('classement');
- let tries=[...membres].sort((a,b)=>(b.points||0)-(a.points||0));
- if(!tries.length) cls.innerHTML='<p style="text-align:center;color:#64748b">Pas encore de classement. Ajoute des membres !</p>';
- else cls.innerHTML=tries.slice(0,5).map((m,i)=>`<div class="classement"><span>${i==0?'🥇':i==1?'🥈':i==2?'🥉':'⭐'} <b>${m.nom}</b></span><span><b>${m.points||0} pts</b> ${m.paye?'• ✅ Payé':''}</span></div>`).join('');
+ let tries=[...t.membres].sort((a,b)=>(b.points||0)-(a.points||0));
+ if(!tries.length) cls.innerHTML='<p style="text-align:center;color:#64748b">Pas encore de classement.</p>';
+ else cls.innerHTML=tries.slice(0,5).map((m,i)=>`<div class="classement"><span>${i==0?'🥇':i==1?'🥈':i==2?'🥉':'⭐'} <b>${m.nom}</b></span><span><b>${m.points||0} pts</b> ${m.paye?'• ✅':''}</span></div>`).join('');
  let h=document.getElementById('histo');
- if(!histo.length) h.innerHTML='<p style="text-align:center;color:#64748b">Aucun tour terminé pour le moment</p>';
- else h.innerHTML=histo.map(x=>`<div class="histo">🏆 <b>${x.nom}</b> a reçu <b>${x.montant} FCFA</b><br><span style="color:#64748b">📅 ${x.date}</span></div>`).join('');
+ if(!t.histo.length) h.innerHTML='<p style="text-align:center;color:#64748b">Aucun tour terminé</p>';
+ else h.innerHTML=t.histo.map(x=>`<div class="histo">🏆 <b>${x.nom}</b> a reçu <b>${x.montant} FCFA</b><br><span style="color:#64748b">📅 ${x.date}</span></div>`).join('');
 }
-['montant','freq','dateDebut','nomGroupe','penalite'].forEach(id=>document.getElementById(id).addEventListener('input',sauver));
+['montant','freq','dateDebut','penalite'].forEach(id=>document.getElementById(id).addEventListener('change',sauver));
 afficher();
 </script>
 </body>
